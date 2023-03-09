@@ -7,7 +7,7 @@ const db = mongoose.connection
 
  // On import ca apres avoir fais les schéma et les routes 
 const AuthorRouter = require ("./routes/AuthorRoute")
-//const BookRouter = require("./routes/BookRoute")
+const BookRouter = require("./routes/BookRoute")
 // en routage 
 
 
@@ -24,5 +24,6 @@ async function main() {
 }
 
 app.use("/api", AuthorRouter)
+app.use("/api", BookRouter)
 
 app.listen(port, () => console.log(`[🚀 SERVER 🚀] on port: ${port}`))

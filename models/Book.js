@@ -12,7 +12,7 @@ const BookSchema = new Schema({
     },
     author: {
         /* Ici on fais le lien avec le model Author */
-        type:mongoose.Typed.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref:"Author"
     }
 })
