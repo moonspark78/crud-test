@@ -3,17 +3,17 @@ const Schema = mongoose.Schema;
 
 const AuthorSchema = new Schema ({
     name:{
-        type: 'string',
+        type: String,
         required: true,
     },
     surname:{
-        type: 'string',
+        type: String,
         required: true,
     },
     age:{
-        type: 'number',
+        type: Number,
         required: true,
-    },
+    }
 })
 const Author = mongoose.model('Author',AuthorSchema);
 module.exports = Author;

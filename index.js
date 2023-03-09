@@ -9,13 +9,12 @@ const db = mongoose.connection
 const AuthorRouter = require ("./routes/AuthorRoute")
 //const BookRouter = require("./routes/BookRoute")
 // en routage 
-app.use("/api", AuthorRouter)
 
-app.use(express.json({ extended: true}))
-app.use(express.urlencoded())
+
+app.use(express.urlencoded({ extended: true}))
 
 db.once("open", () => {
-    console.log('[📚Database] MongoDB connected')
+  console.log('[📚Database] MongoDB connected')
 })
 
 main().catch(err => console.log(err));
@@ -24,5 +23,6 @@ async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/soulidb');
 }
 
+app.use("/api", AuthorRouter)
 
 app.listen(port, () => console.log(`[🚀 SERVER 🚀] on port: ${port}`))
