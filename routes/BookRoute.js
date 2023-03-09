@@ -33,10 +33,11 @@ BookRouter.post('/book', async (req, res) => {
 
 // AFFICHER UN SEUL LIVRE
 
-BookRouter.get("/find/:id", async (req, res) =>{
+BookRouter.get("/find/:id", async (req, res) =>{ 
     try {
         const {id} = req.params
-        let book = await Book.findById(id).populate("author")
+        let book = await Book.findById(id).populate("author")  
+        // pour le populate si je veux pas tt récupérer ex: je veux seulemnt le name alors populate({path: "author", select:"name"})
 
         if(!book){
             return res.status(404).send({
