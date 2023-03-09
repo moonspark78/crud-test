@@ -5,7 +5,14 @@ const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 const db = mongoose.connection
 
+ // On import ca apres avoir fais les schéma et les routes 
+const AuthorRouter = require ("./routes/AuthorRoute")
+//const BookRouter = require("./routes/BookRoute")
+// en routage 
+app.use("/api", AuthorRouter)
 
+app.use(express.json({ extended: true}))
+app.use(express.urlencoded())
 
 db.once("open", () => {
     console.log('[📚Database] MongoDB connected')
